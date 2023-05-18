@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { productReducer } from './store/products/product.reducer';
 import { ProductCardComponent } from './components/home/product-card/product-card.component';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LayoutComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
