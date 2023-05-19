@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { productReducer } from './store/products/product.reducer';
 import { ProductCardComponent } from './components/home/product-card/product-card.component';
 import { ProductComponent } from './pages/product/product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductComponent } from './pages/product/product.component';
     HomepageComponent,
     LayoutComponent,
     ProductCardComponent,
-    ProductComponent
+    ProductComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -53,3 +53,16 @@ export const deleteProductFailure = createAction(
   '[Product] Delete Product Failure',
   props<{ error: string }>()
 );
+
+// Products on cart
+export const addToCart = createAction(
+  '[Product] Add To Cart',
+  props<{product: Product }>()
+)
+export const removeFromCart = createAction(
+  '[Product] Remove From Cart',
+  props<{productId: string }>()
+)
+export const clearCart = createAction(
+  '[Product] Clear Cart'
+)

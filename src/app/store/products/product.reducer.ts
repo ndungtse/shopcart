@@ -30,5 +30,17 @@ export const productReducer = createReducer(
   on(ProductActions.deleteProductSuccess, (state, { productId }) => ({
     ...state,
     products: state.products.filter((p) => p.id !== productId),
+  })),
+  on(ProductActions.addToCart, (state, { product }) => ({
+    ...state,
+    cart: [...state.cart, product],
+  })),
+  on(ProductActions.removeFromCart, (state, { productId }) => ({
+    ...state,
+    cart: state.cart.filter((p) => p.id !== productId),
+  })),
+  on(ProductActions.clearCart, (state) => ({
+    ...state,
+    cart: [],
   }))
 );

@@ -1,0 +1,70 @@
+<div class="flex w-full lg:flex-row flex-col gap-3">
+  <div class="flex w-full flex-col gap-y-4">
+    <div class="flex flex-col gap-y-4 border-4 rounded-md w-full p-3">
+      <h1 class="text-xl font-semibold">Review Item And Shipping</h1>
+      <div class="flex w-full justify-between">
+        <div class="flex gap-x-6">
+          <img
+            src="https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701"
+            alt="product"
+            class="object-cover max-h-[220px] aspect-[5/4] rounded-md overflow-hidden"
+          />
+          <div class="flex flex-col gap-y-4">
+            <h1 class="text-xl font-bold">Airpods - Max</h1>
+            <span class="text-sm">Color - Pink</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-2 mt-5">
+          <h1 class="text-lg font-semibold">$545.23</h1>
+          <span class="text-sm">Quantity - 4</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-y-4 border-4 rounded-md w-full p-3">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-semibold">Delivery infrmation</h1>
+        <button class="text-sm px-4 font-semibold p-2 rounded-3xl bg-slate-200">
+          Edit Information
+        </button>
+      </div>
+      <div
+        *ngFor="let it of deliverInfo"
+        class="rowinput gap-4 flex items-center max-w-[600px] justify-between"
+      >
+        <label for="name" class="font-semibold">Name:</label>
+        <input
+          type="text"
+          placeholder="Name"
+          class="w-full max-w-[500px] outline-none border-none focus:border-2 focus:border-green-400 duration-200 rounded-md"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-y-4 border-4 rounded-md min-w-[450px] p-3">
+    <h1 class="text-3xl font-semibold">Order Summary</h1>
+    <h1 class="text-lg font-semibold">Payment Details</h1>
+    <div class="flex flex-col gap-y-3">
+      <label for="" class="flex gap-x-3">
+        <input type="radio" name="paydet" class=" cursor-pointer accent-green-950" id="" />
+        Cash on Delivery
+      </label>
+      <label for="" class="flex gap-x-3">
+        <input type="radio" name="paydet" class=" cursor-pointer accent-green-950" id="" />
+        Shopcart Card
+      </label>
+      <label for="" class="flex gap-x-3">
+        <input type="radio" name="paydet" class=" cursor-pointer accent-green-950" id="" />
+        Paypal
+      </label>
+      <label for="" class="flex gap-x-3">
+        <input type="radio" name="paydet" class=" cursor-pointer accent-green-950" id="" />
+        Credit Card
+      </label>
+    </div>
+    <a routerLink="/order/checkout"
+        class="flex border-2 max-w-[300px] border-green-950 items-center w-full justify-center text-white rounded-3xl bg-green-950 p-3"
+      >
+        Confirm Purchase
+      </a>
+  </div>
+</div>
