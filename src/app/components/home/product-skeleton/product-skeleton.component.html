@@ -1,0 +1,17 @@
+<div
+  class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 py-6"
+>
+  <div
+    *ngFor="let item of items"
+    class="w-full f flex-col aspect-square mx-auto max-w-[350px]"
+  >
+    <ngx-skeleton-loader
+      count="1"
+      [theme]="{ 
+      'border-radius': '5px',
+      height: '100%',
+    }"
+    ></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="2" appearance="line"></ngx-skeleton-loader>
+  </div>
+</div>

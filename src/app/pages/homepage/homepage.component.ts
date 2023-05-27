@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
-import { selectProducts } from 'src/app/store/products/product.selector';
+import { loadProducts } from 'src/app/store/products/product.actions';
+import { selectLoading, selectProducts } from 'src/app/store/products/product.selector';
 import { Product } from 'src/app/utils/types/type.1';
 
 @Component({
@@ -10,14 +11,18 @@ import { Product } from 'src/app/utils/types/type.1';
 })
 export class HomepageComponent {
   products: Product[] = [];
+  loading: boolean = true;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // this.store.dispatch(loadProducts());
-    this.store.select('products').subscribe((products) => {
-      this.products = products.products;
+    this.store.dispatch(loadProducts());
+    this.store.select(selectProducts).subscribe((products) => {
+      console.log(products);
+      this.products = products;
     });
-    this.products = selectProducts(this.store);
+    this.store.select(selectLoading).subscribe((loading) => {
+      this.loading = loading;
+    });
   }
 }

@@ -1,6 +1,5 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -13,6 +12,14 @@ import { productReducer } from './store/products/product.reducer';
 import { ProductCardComponent } from './components/home/product-card/product-card.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/products/product.effects';
+import { ProductService } from './services/product.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ProductSkeletonComponent } from './components/home/product-skeleton/product-skeleton.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,9 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     LayoutComponent,
     ProductCardComponent,
     ProductComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductSkeletonComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,16 +39,23 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
-    StoreModule.forRoot({
-      products: productReducer,
-    }, {}),
+    StoreModule.forRoot(
+      {
+        products: productReducer,
+      },
+      {}
+    ),
     BrowserAnimationsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([ProductEffects]),
+    HttpClientModule,
+    NgxSkeletonLoaderModule,
+    MatToolbarModule,
     // FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "dev": "ng serve --hmr",
+    "dev": "ng serve --hmr --open",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -25,6 +25,7 @@
     "@ngrx/effects": "^16.0.0",
     "@ngrx/store": "^16.0.0",
     "@ngrx/store-devtools": "^16.0.0",
+    "ngx-skeleton-loader": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

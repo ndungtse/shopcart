@@ -1,7 +1,23 @@
 <div class="w-full flex flex-col">
   <div
-    class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-3"
+    class="flex w-full rounded-md p-4 justify-center flex-col gap-y-4 bg-[#fcf0e4] h-[35vh] relative"
   >
-    <app-product-card *ngFor="let product of products"></app-product-card>
+    <h2 class="md:text-3xl text-xl font-bold text-green-800">
+      Get Your Favorite Product here
+    </h2>
+    <button
+      class="flex w-fit border-2 border-green-950 items-center justify-center text-white rounded-3xl bg-green-950 py-2 px-5"
+    >
+      Buy Now
+    </button>
   </div>
+  <div
+    class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 py-6"
+  >
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-product-card>
+  </div>
+  <app-product-skeleton *ngIf="loading"></app-product-skeleton>
 </div>

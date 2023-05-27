@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Product } from '../utils/types/type.1';
 
-@Injectable()
+export interface ApiResponse<T = any> {
+  data: T;
+  message: string;
+  success: boolean;
+}
+
+@Injectable({
+  providedIn: 'root',
+})
 export class ProductService {
-  private apiUrl = 'https://example.com/api/products'; // Replace with your actual API URL
+  private apiUrl = 'https://ebay-scrape.onrender.com/products'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http
+      .get<ApiResponse<Product[]>>(this.apiUrl + '/ebay/globaldeals')
+      .pipe(map((res) => res.data));
   }
 
   addProduct(product: Product): Observable<Product> {

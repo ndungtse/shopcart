@@ -5409,6 +5409,14 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+ngx-skeleton-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-skeleton-loader/-/ngx-skeleton-loader-7.0.0.tgz#3b1325025a7208a20f3a0fdba6e578532a09cfcd"
+  integrity sha512-myc6GNcNhyksZrimIFkCxeihi0kQ8JhQVZiGbtiIv4gYrnnRk5nXbs3kYitK8E8OstHG+jlsmRofqGBxuIsYTA==
+  dependencies:
+    perf-marks "^1.13.4"
+    tslib "^2.0.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"
@@ -5807,6 +5815,13 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+
+perf-marks@^1.13.4:
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/perf-marks/-/perf-marks-1.14.2.tgz#7511c24239b9c2071717993a33ec3057f387b8c7"
+  integrity sha512-N0/bQcuTlETpgox/DsXS1voGjqaoamMoiyhncgeW3rSHy/qw8URVgmPRYfFDQns/+C6yFUHDbeSBGL7ixT6Y4A==
+  dependencies:
+    tslib "^2.1.0"
 
 picocolors@^1.0.0:
   version "1.0.0"
