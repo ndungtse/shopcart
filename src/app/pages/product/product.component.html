@@ -1,33 +1,48 @@
-<div class="flex w-full gap-3 md:flex-row flex-col">
+<app-product-details-skeleton *ngIf="loading"></app-product-details-skeleton>
+<span *ngIf="error" class="text-red-700 text-center flex w-full justify-center"
+  >{{ error }}. Reload To try again</span
+>
+<div *ngIf="!loading && !error" class="flex w-full gap-3 md:flex-row flex-col">
   <div class="flex flex-col md:w-1/2">
-    <div class="w-full max-h-[500px] rounded-lg bg-stone-100 aspect-square">
+    <div
+      class="w-full max-h-[500px] overflow-hidden rounded-lg bg-stone-100 aspect-square"
+    >
       <img
-        src="https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701"
+        [src]="
+          product?.image ??
+          'https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701'
+        "
         alt="product"
-        class="object-cover max-h-full"
+        class="object-cover min-h-full w-full"
       />
     </div>
     <div class="flex mt-7 w-full gap-x-3">
       <div
         *ngFor="let photo of photos"
-        class="cursor-pointer border-2 overflow-hidden aspect-video h-[100px] rounded-lg bg-slate-200"
+        class="cursor-pointer aspect-[10/7] border-2 overflow-hidden max-h-[100px] rounded-lg bg-slate-200"
       >
         <img
-          src="https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701"
+          [src]="
+            product?.image ??
+            'https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701'
+          "
           alt="product"
-          class="object-cover max-h-full w-full"
+          class="object-cover min-h-full w-full"
         />
       </div>
     </div>
   </div>
   <div class="flex md:w-1/2 flex-col gap-y-7 px-6">
     <div class="flex flex-col gap-y-4">
-      <h1 class="text-2xl font-semibold">Airpods- Max</h1>
+      <h1 class="text-2xl font-semibold">{{ product?.title }}</h1>
       <span class="">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non
+        {{
+          product?.description ??
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non
         voluptate. Magnam aut atque tenetur tempore ipsam esse temporibus
         explicabo aspernatur modi? Reiciendis nesciunt ipsum ipsam! Eius ipsam
-        eveniet rerum!
+        eveniet rerum!"
+        }}
       </span>
       <div class="flex items-center gap-x-1">
         <i class="material-icons text-green-500">star</i>
@@ -38,7 +53,7 @@
       </div>
     </div>
     <div class="flex flex-col gap-y-4">
-      <h1 class="text-2xl font-semibold">Airpods- Max</h1>
+      <h1 class="text-2xl font-semibold">{{ product?.title }}</h1>
       <span class=""
         >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, non
         voluptate.</span
@@ -62,7 +77,8 @@
       </div>
     </div>
     <div class="flex items-center gap-x-4">
-      <a routerLink="/order/checkout"
+      <a
+        routerLink="/order/checkout"
         class="flex border-2 border-green-950 items-center w-full justify-center text-white rounded-3xl bg-green-950 p-3"
       >
         Buy Now
@@ -76,14 +92,14 @@
     <div class="flex gap-x-3">
       <i class="material-icons">train</i>
       <div class="flex flex-col text-sm">
-        <p class=" font-semibold">Free Delivery</p>
+        <p class="font-semibold">Free Delivery</p>
         <span>We deliver the product exactly where you are</span>
       </div>
     </div>
     <div class="flex gap-x-3">
       <i class="material-icons">train</i>
       <div class="flex flex-col text-sm">
-        <p class=" font-semibold">Return Delivery</p>
+        <p class="font-semibold">Return Delivery</p>
         <span>We deliver the product exactly where you are</span>
       </div>
     </div>

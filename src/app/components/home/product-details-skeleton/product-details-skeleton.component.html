@@ -1,0 +1,17 @@
+<div class="flex w-full gap-3 h-screen md:flex-row flex-col">
+  <div class="flex flex-col md:w-1/2">
+    <div class="w-full max-h-[500px] rounded-lg bg-stone-100 aspect-square">
+      <ngx-skeleton-loader
+        count="1"
+        [theme]="{ 
+      'border-radius': '5px',
+      height: '100%',
+    }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader count="4" appearance="circle"></ngx-skeleton-loader>
+    </div>
+  </div>
+  <div class="flex flex-col md:w-1/2">
+    <ngx-skeleton-loader count="6" appearance="line"></ngx-skeleton-loader>
+  </div>
+</div>

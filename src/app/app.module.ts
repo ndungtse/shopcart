@@ -21,6 +21,7 @@ import { ProductSkeletonComponent } from './components/home/product-skeleton/pro
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
+import { ProductDetailsSkeletonComponent } from './components/home/product-details-skeleton/product-details-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProductsCategoryComponent } from './pages/products-category/products-ca
     ProductSkeletonComponent,
     NavbarComponent,
     ProductsCategoryComponent,
+    ProductDetailsSkeletonComponent,
   ],
   imports: [
     BrowserModule,

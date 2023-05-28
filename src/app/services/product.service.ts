@@ -46,7 +46,9 @@ export class ProductService {
   }
 
   getProductById(productId: string): Observable<Product> {
-    const url = `${this.apiUrl}/${productId}`;
-    return this.http.get<Product>(url);
+    const url = `${this.apiUrl}/ebay/products/itm/${productId}`;
+    return this.http
+      .get<ApiResponse<Product>>(url)
+      .pipe(map((res) => res.data));
   }
 }

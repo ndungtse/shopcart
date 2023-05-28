@@ -25,7 +25,7 @@ export class ProductsCategoryComponent implements OnInit {
       next: (products) => {
         this.products = products;
         this.loading = false;
-        this.error = '';
+        this.error = null;
       },
       error: (error) => {
         console.log(error);
