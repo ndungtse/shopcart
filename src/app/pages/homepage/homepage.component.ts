@@ -24,29 +24,13 @@ export class HomepageComponent {
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(loadProducts());
     this.store.select(selectProducts).subscribe((products) => {
       console.log(products);
       this.products = products;
+      if (products.length === 0) this.store.dispatch(loadProducts());
     });
     this.store.select(selectLoading).subscribe((loading) => {
       this.loading = loading;
     });
-    console.log('init');
-    this.getProducts();
-  }
-
-  getProducts() {
-    this.productService.getProducts().pipe(
-      map((products) => {
-        this.products = products;
-        this.loading = false;
-      }),
-      catchError((error) => {
-        console.log(error);
-        this.loading = false;
-        return error;
-      })
-    );
   }
 }

@@ -11,7 +11,7 @@
       class="links duration-500 lg:flex-row lg:static fixed lg:pt-0 pt-24 left-0 lg:h-fit -top-[1000px] h-screen flex-col z-[51] w-full lg:justify-between gap-y-3 bg-white lg:px-11 lg:max-w-[650px] flex items-center gap-x-4 lg:ml-8"
       [ngClass]="{ visible: isMobile }"
     >
-      <a routerLink="#" class="hover:text-green-800">Home</a>
+      <a routerLink="/" class="hover:text-green-800">Home</a>
       <a routerLink="/category/Electronics" class="hover:text-green-800"
         >Electronics</a
       >
@@ -41,10 +41,17 @@
       <i class="material-icons">account_circle</i>
       <span class="xl:flex hidden">Account</span>
     </div>
-    <div class="flex items-center gap-x-2 user-account">
-      <i class="material-icons">shopping_cart</i>
+    <a routerLink="/cart" class="flex items-center gap-x-2 user-account">
+      <div class="relative flex justify-center items-center">
+        <i class="material-icons">shopping_cart</i>
+        <span
+          *ngIf="cartProducts.length > 0"
+          class="absolute -top-3 -right-1 rounded-full w-5 flex items-center justify-center text-xs h-5 bg-green-900 text-white"
+          >{{ cartProducts.length }}</span
+        >
+      </div>
       <span class="xl:flex hidden">Cart</span>
-    </div>
+    </a>
     <button
       class="z-[52] flex lg:hidden items-center justify-center"
       (click)="toggleMobileMenu()"

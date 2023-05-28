@@ -16,6 +16,11 @@ export const selectLoading = createSelector(
   selectProductsState,
   (state) => state.loading
 );
+
+export const selectOnCart = createSelector(
+  selectProductsState,
+  (state) => state.cart
+);
 export const selectError = createSelector(
   selectProductsState,
   (state) => state.error

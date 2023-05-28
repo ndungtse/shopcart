@@ -22,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
 import { ProductDetailsSkeletonComponent } from './components/home/product-details-skeleton/product-details-skeleton.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProductDetailsSkeletonComponent } from './components/home/product-detai
     NavbarComponent,
     ProductsCategoryComponent,
     ProductDetailsSkeletonComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,

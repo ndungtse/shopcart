@@ -1,17 +1,17 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { addToCart } from 'src/app/store/products/product.actions';
 import { selectOnCart } from 'src/app/store/products/product.selector';
 import { Product } from 'src/app/utils/types/type.1';
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
+  selector: 'app-cart-page',
+  templateUrl: './cart-page.component.html',
 })
-export class ProductCardComponent implements OnInit {
-  @Input() product: Product | null = null;
+export class CartPageComponent {
   cartProducts: Product[] = [];
   isOnCart: boolean = false;
+  product: any;
 
   constructor(private store: Store) {
     this.store.select(selectOnCart).subscribe((onCart) => {
@@ -30,20 +30,9 @@ export class ProductCardComponent implements OnInit {
     );
   }
 
-  // ngOnChanges(): void {
-  //   this.isOnCart = this.cartProducts.some(
-  //     (product) => product.id === this.product?.id
-  //   );
-  // }
-
   addToCart(product: Product) {
-    console.log('addToCart', this.product);
+    console.log('addToCart', product);
     this.store.dispatch(addToCart({ product }));
-  }
-  handleCartClick() {
-    this.isOnCart
-      ? this.removeFromCart(this.product!)
-      : this.addToCart(this.product!);
   }
 
   removeFromCart(product: Product) {

@@ -1,0 +1,31 @@
+<span
+  *ngIf="cartProducts.length === 0"
+  class="flex text-xl mt-7 w-full justify-center items-start"
+  >No Product On Your Cart</span
+>
+<div *ngIf="cartProducts.length > 0" class="flex flex-col w-full">
+  <h2>Products On Your cart</h2>
+
+  <div class="flex flex-col w-full max-w-[1000px] mx-auto gap-y-4">
+    <div
+      *ngFor="let product of cartProducts"
+      class="flex w-full bg-slate-200 rounded-lg justify-between items-center"
+    >
+      <div class="flex gap-4">
+        <img
+          class="aspect-square max-w-[200px] w-full"
+          [src]="product?.image"
+          alt=""
+        />
+        <h1 class="text-lg font-semibold">{{ product.title }}</h1>
+      </div>
+      <h1 class="text-2xl font-bold">{{ product.price }}</h1>
+      <button
+        (click)="removeFromCart(product!)"
+        class="flex w-fit px-5 py-2 rounded-3xl bg-red-500 text-white"
+      >
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

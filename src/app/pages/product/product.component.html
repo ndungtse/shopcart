@@ -63,7 +63,10 @@
       <div
         class="flex gap-x-2 items-center bg-slate-300 rounded-3xl text-green-800 overflow-hidden"
       >
-        <button class="text-slate-700 text-4xl px-4 py-1 rounded-full">
+        <button
+          (click)="handleQuantityChange(false)"
+          class="text-slate-700 text-4xl px-4 py-1 rounded-full"
+        >
           -
         </button>
         <span>1</span>
@@ -84,6 +87,7 @@
         Buy Now
       </a>
       <button
+        (click)="addToCart(product!)"
         class="flex border-2 border-green-950 items-center w-full justify-center rounded-3xl p-3"
       >
         Add to Cart

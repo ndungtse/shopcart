@@ -9,7 +9,7 @@
           'https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701'
         "
         alt="product"
-        class="object-cover max-h-full"
+        class="object-cover w-full max-h-full"
       />
     </a>
     <i
@@ -31,8 +31,10 @@
     </div>
   </a>
   <button
+    (click)="addToCart(product!)"
     class="hover:bg-green-900 hover:text-white w-fit duration-150 rounded-3xl px-4 border-2 border-green-900 py-2"
   >
-    Add to cart
+    <i *ngIf="isOnCart" class="material-icons">check</i>
+    {{ isOnCart ? "OnCart" : "Add to cart" }}
   </button>
 </div>

@@ -4,6 +4,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'category/:category',
     component: ProductsCategoryComponent,
+  },
+  {
+    path: 'cart',
+    component: CartPageComponent,
   },
   {
     path: 'order/checkout',
