@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { addToCart } from 'src/app/store/products/product.actions';
+import {
+  addToCart,
+  removeFromCart,
+} from 'src/app/store/products/product.actions';
 import { selectOnCart } from 'src/app/store/products/product.selector';
 import { Product } from 'src/app/utils/types/type.1';
 
@@ -37,6 +40,6 @@ export class CartPageComponent {
 
   removeFromCart(product: Product) {
     console.log('removeFromCart', product);
-    this.store.dispatch(addToCart({ product }));
+    this.store.dispatch(removeFromCart({ productId: product?.id as string }));
   }
 }

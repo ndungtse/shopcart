@@ -9,15 +9,15 @@
   <div class="flex flex-col w-full max-w-[1000px] mx-auto gap-y-4">
     <div
       *ngFor="let product of cartProducts"
-      class="flex w-full bg-slate-200 rounded-lg justify-between items-center"
+      class="flex w-full border-2 pr-2 bg-stone-100 rounded-lg justify-between items-center"
     >
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
         <img
           class="aspect-square max-w-[200px] w-full"
           [src]="product?.image"
           alt=""
         />
-        <h1 class="text-lg font-semibold">{{ product.title }}</h1>
+        <h1 class="text-lg max-w-[400px] font-semibold">{{ product.title }}</h1>
       </div>
       <h1 class="text-2xl font-bold">{{ product.price }}</h1>
       <button
