@@ -12,8 +12,8 @@
       src="assets/products.png"
       alt=""
     />
-    <h2 class="md:text-4xl z-10 text-xl font-black text-green-900">
-      Get Your Favorite Product here
+    <h2 class="md:text-4xl md:w-1/2 z-10 text-xl font-black text-green-900">
+      Get Your Favorite Products here
     </h2>
     <button
       class="flex z-10 w-fit border-2 border-green-950 items-center justify-center text-white rounded-3xl bg-green-950 py-2 px-5"
@@ -24,10 +24,51 @@
   <div
     class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 py-6"
   >
-    <app-product-card
+    <!-- <app-product-card
       *ngFor="let product of products"
       [product]="product"
-    ></app-product-card>
+    ></app-product-card> -->
+    <div
+      *ngFor="let product of products"
+      class="flex gap-y-2 mx-auto flex-col rounded-lg shadow-sm w-full max-w-[400px]"
+    >
+      <div class="relative w-full rounded-lg overflow-hidden p-1 bg-stone-100">
+        <a routerLink="/product/3">
+          <img
+            [src]="
+              product?.image ??
+              'https://cdn.dribbble.com/userupload/3772719/file/original-2f363e794994e437d61bd6ff4a31b107.png?compress=1&resize=3601x2701'
+            "
+            alt="product"
+            class="object-cover max-h-full"
+          />
+        </a>
+        <i
+          class="material-icons bg-white rounded-full w-8 aspect-square flex items-center justify-center absolute top-2 right-2 text-2xl cursor-pointer"
+          >favorite_border</i
+        >
+      </div>
+      <a class="flex flex-col gap-y-2" routerLink="/product/3">
+        <div
+          class="flex w-full text-lg font-semibold justify-between items-center"
+        >
+          <h1 class="text-sm hover:text-green-500">{{ product?.title }}</h1>
+          <span class="">{{ product?.price }}</span>
+        </div>
+        <div class="flex items-center gap-x-1">
+          <i class="material-icons text-green-500">star</i>
+          <i class="material-icons text-green-500">star</i>
+          <i class="material-icons text-green-500">star</i>
+          <i class="material-icons text-green-500">star</i>
+          <i class="material-icons text-green-500">star</i>
+        </div>
+      </a>
+      <button
+        class="hover:bg-green-900 hover:text-white w-fit duration-150 rounded-3xl px-4 border-2 border-green-900 py-2"
+      >
+        Add to cart
+      </button>
+    </div>
   </div>
   <app-product-skeleton *ngIf="loading"></app-product-skeleton>
 </div>

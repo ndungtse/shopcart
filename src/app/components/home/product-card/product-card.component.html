@@ -2,7 +2,7 @@
   class="flex gap-y-2 mx-auto flex-col rounded-lg shadow-sm w-full max-w-[400px]"
 >
   <div class="relative w-full rounded-lg overflow-hidden p-1 bg-stone-100">
-    <a routerLink="/product/3">
+    <a [routerLink]="'product/' + product?.id">
       <img
         [src]="
           product?.image ??
@@ -17,13 +17,11 @@
       >favorite_border</i
     >
   </div>
-  <a class="flex flex-col gap-y-2" routerLink="/product/3">
+  <a class="flex flex-col gap-y-2" [routerLink]="'product/' + product?.id">
     <div class="flex w-full text-lg font-semibold justify-between items-center">
       <h1 class="text-sm hover:text-green-500">{{ product?.title }}</h1>
       <span class="">{{ product?.price }}</span>
     </div>
-    <!-- <span class="text-sm text-gray-500">Product description</span> -->
-    <!-- material ratings -->
     <div class="flex items-center gap-x-1">
       <i class="material-icons text-green-500">star</i>
       <i class="material-icons text-green-500">star</i>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
 
 const routes: Routes = [
   {
@@ -11,16 +12,20 @@ const routes: Routes = [
   },
   {
     path: 'product/:id',
-    component: ProductComponent
+    component: ProductComponent,
+  },
+  {
+    path: 'category/:category',
+    component: ProductsCategoryComponent,
   },
   {
     path: 'order/checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

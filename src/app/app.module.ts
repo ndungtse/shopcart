@@ -20,6 +20,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProductSkeletonComponent } from './components/home/product-skeleton/product-skeleton.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CheckoutComponent,
     ProductSkeletonComponent,
     NavbarComponent,
+    ProductsCategoryComponent,
   ],
   imports: [
     BrowserModule,

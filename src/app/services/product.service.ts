@@ -23,6 +23,14 @@ export class ProductService {
       .pipe(map((res) => res.data));
   }
 
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http
+      .get<ApiResponse<Product[]>>(
+        this.apiUrl + `/ebay/globaldeals/${category}`
+      )
+      .pipe(map((res) => res.data));
+  }
+
   addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, product);
   }
