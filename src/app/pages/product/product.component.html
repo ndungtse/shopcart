@@ -93,7 +93,8 @@
         (click)="handleCartClick()"
         class="flex border-2 border-green-950 items-center w-full justify-center rounded-3xl p-3"
       >
-        Add to Cart
+        <i *ngIf="isOnCart" class="material-icons">check</i>
+        {{ isOnCart ? "On Cart" : "Add to Cart" }}
       </button>
     </div>
     <div class="flex gap-x-3">

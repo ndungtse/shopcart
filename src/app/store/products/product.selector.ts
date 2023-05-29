@@ -21,6 +21,10 @@ export const selectOnCart = createSelector(
   selectProductsState,
   (state) => state.cart
 );
+export const selectFavProducts = createSelector(
+  selectProductsState,
+  (state) => state.favProducts
+);
 export const selectError = createSelector(
   selectProductsState,
   (state) => state.error

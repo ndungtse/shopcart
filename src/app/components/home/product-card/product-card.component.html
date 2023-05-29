@@ -14,7 +14,9 @@
     </a>
     <i
       class="material-icons bg-white rounded-full w-8 aspect-square flex items-center justify-center absolute top-2 right-2 text-2xl cursor-pointer"
-      >favorite_border</i
+      [ngClass]="{ 'text-red-600': isOnFav }"
+      (click)="handleFavClick()"
+      >{{ isOnFav ? "favorite" : "favorite_border" }}</i
     >
   </div>
   <a class="flex flex-col gap-y-2" [routerLink]="'/product/' + product?.id">

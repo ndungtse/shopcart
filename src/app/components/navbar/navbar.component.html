@@ -37,10 +37,17 @@
         <i class="material-icons">search</i>
       </button>
     </div>
-    <div class="flex items-center gap-x-2 user-account">
-      <i class="material-icons">account_circle</i>
-      <span class="xl:flex hidden">Account</span>
-    </div>
+    <a routerLink="/favorites" class="flex items-center gap-x-2 user-account">
+      <div class="relative flex justify-center items-center">
+        <i class="material-icons">favorite_border</i>
+        <span
+          *ngIf="favProducts.length > 0"
+          class="absolute -top-3 -right-1 rounded-full w-5 flex items-center justify-center text-xs h-5 bg-green-900 text-white"
+          >{{ favProducts.length }}</span
+        >
+      </div>
+      <span class="xl:flex hidden">Favorites</span>
+    </a>
     <a routerLink="/cart" class="flex items-center gap-x-2 user-account">
       <div class="relative flex justify-center items-center">
         <i class="material-icons">shopping_cart</i>

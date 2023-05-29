@@ -52,5 +52,33 @@ export const productReducer = createReducer(
     ...state,
     cart: products,
     loading: false,
+  })),
+  on(ProductActions.getFavProductsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error: error,
+  })),
+  on(ProductActions.getFavProducts, (state) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(ProductActions.getFavProductsSuccess, (state, { products }) => ({
+    ...state,
+    favProducts: products,
+    loading: false,
+  })),
+  on(ProductActions.getFavProductsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error: error,
+  })),
+  on(ProductActions.addToFav, (state, { product }) => ({
+    ...state,
+    favProducts: [...state.favProducts, product],
+  })),
+  on(ProductActions.removeFromFav, (state, { productId }) => ({
+    ...state,
+    favProducts: state.favProducts.filter((p) => p.id !== productId),
   }))
 );

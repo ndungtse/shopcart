@@ -75,3 +75,21 @@ export const getCartProductsFailure = createAction(
   '[Product] Get Cart Products Failure',
   props<{ error: string }>()
 );
+export const addToFav = createAction(
+  '[Product] Add To Fav',
+  props<{ product: Product }>()
+);
+export const removeFromFav = createAction(
+  '[Product] Remove From Fav',
+  props<{ productId: string }>()
+);
+export const clearFav = createAction('[Product] Clear Fav');
+export const getFavProducts = createAction('[Product] Get Fav Products');
+export const getFavProductsSuccess = createAction(
+  '[Product] Get Fav Products Success',
+  props<{ products: Product[] }>()
+);
+export const getFavProductsFailure = createAction(
+  '[Product] Get Fav Products Failure',
+  props<{ error: string }>()
+);

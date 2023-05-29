@@ -52,6 +52,21 @@ export class ProductEffects {
     )
   );
 
+  // get products on favorites from local storage
+  getFavProducts$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductActions.getFavProducts),
+      switchMap(() =>
+        this.productService.getFavProducts().pipe(
+          map((products) => ProductActions.getFavProductsSuccess({ products })),
+          catchError((error) =>
+            of(ProductActions.getFavProductsFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
+
   // Update Product and Delete Product effects can be similarly implemented
 
   constructor(

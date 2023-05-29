@@ -59,4 +59,12 @@ export class ProductService {
     }
     return of([]);
   }
+
+  getFavProducts(): Observable<Product[]> {
+    const favProducts = localStorage.getItem('favProducts');
+    if (favProducts) {
+      return of(JSON.parse(favProducts));
+    }
+    return of([]);
+  }
 }

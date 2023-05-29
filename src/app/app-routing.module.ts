@@ -5,6 +5,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { FavoritePageComponent } from './pages/favorite-page/favorite-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartPageComponent,
+  },
+  {
+    path: 'favorites',
+    component: FavoritePageComponent,
   },
   {
     path: 'order/checkout',

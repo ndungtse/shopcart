@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectOnCart } from 'src/app/store/products/product.selector';
+import {
+  selectFavProducts,
+  selectOnCart,
+} from 'src/app/store/products/product.selector';
 import { Product } from 'src/app/utils/types/type.1';
 
 @Component({
@@ -11,10 +14,14 @@ import { Product } from 'src/app/utils/types/type.1';
 export class NavbarComponent {
   isMobile: boolean = false;
   cartProducts: Product[] = [];
+  favProducts: Product[] = [];
 
   constructor(private store: Store) {
     this.store.select(selectOnCart).subscribe((onCart) => {
       this.cartProducts = onCart;
+    });
+    this.store.select(selectFavProducts).subscribe((onFav) => {
+      this.favProducts = onFav;
     });
   }
 
