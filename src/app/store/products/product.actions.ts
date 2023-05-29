@@ -57,12 +57,21 @@ export const deleteProductFailure = createAction(
 // Products on cart
 export const addToCart = createAction(
   '[Product] Add To Cart',
-  props<{product: Product }>()
-)
+  props<{ product: Product }>()
+);
 export const removeFromCart = createAction(
   '[Product] Remove From Cart',
-  props<{productId: string }>()
-)
-export const clearCart = createAction(
-  '[Product] Clear Cart'
-)
+  props<{ productId: string }>()
+);
+export const clearCart = createAction('[Product] Clear Cart');
+
+// get cart products from localstorage
+export const getCartProducts = createAction('[Product] Get Cart Products');
+export const getCartProductsSuccess = createAction(
+  '[Product] Get Cart Products Success',
+  props<{ products: Product[] }>()
+);
+export const getCartProductsFailure = createAction(
+  '[Product] Get Cart Products Failure',
+  props<{ error: string }>()
+);

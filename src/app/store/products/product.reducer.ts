@@ -42,5 +42,15 @@ export const productReducer = createReducer(
   on(ProductActions.clearCart, (state) => ({
     ...state,
     cart: [],
+  })),
+  on(ProductActions.getCartProducts, (state) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(ProductActions.getCartProductsSuccess, (state, { products }) => ({
+    ...state,
+    cart: products,
+    loading: false,
   }))
 );

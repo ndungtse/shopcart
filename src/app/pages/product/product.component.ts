@@ -61,6 +61,7 @@ export class ProductComponent implements OnInit {
     this.isOnCart
       ? this.removeFromCart(this.product!)
       : this.addToCart(this.product!);
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
 
   removeFromCart(product: Product) {

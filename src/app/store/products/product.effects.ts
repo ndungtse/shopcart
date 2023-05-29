@@ -35,6 +35,23 @@ export class ProductEffects {
     )
   );
 
+  // get products on cart from local storage
+  getCartProducts$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductActions.getCartProducts),
+      switchMap(() =>
+        this.productService.getCartProducts().pipe(
+          map((products) =>
+            ProductActions.getCartProductsSuccess({ products })
+          ),
+          catchError((error) =>
+            of(ProductActions.getCartProductsFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
+
   // Update Product and Delete Product effects can be similarly implemented
 
   constructor(

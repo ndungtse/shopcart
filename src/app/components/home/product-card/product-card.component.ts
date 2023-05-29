@@ -42,6 +42,8 @@ export class ProductCardComponent implements OnInit {
   addToCart(product: Product) {
     console.log('addToCart', this.product);
     this.store.dispatch(addToCart({ product }));
+    // save to local storage
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
   handleCartClick() {
     this.isOnCart
@@ -52,5 +54,7 @@ export class ProductCardComponent implements OnInit {
   removeFromCart(product: Product) {
     console.log('removeFromCart', product);
     this.store.dispatch(removeFromCart({ productId: product?.id as string }));
+    // save to local storage
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
 }

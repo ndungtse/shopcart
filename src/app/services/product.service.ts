@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { Product } from '../utils/types/type.1';
 
 export interface ApiResponse<T = any> {
@@ -50,5 +50,13 @@ export class ProductService {
     return this.http
       .get<ApiResponse<Product>>(url)
       .pipe(map((res) => res.data));
+  }
+
+  getCartProducts(): Observable<Product[]> {
+    const cartProducts = localStorage.getItem('cartProducts');
+    if (cartProducts) {
+      return of(JSON.parse(cartProducts));
+    }
+    return of([]);
   }
 }

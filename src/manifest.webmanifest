@@ -2,10 +2,13 @@
   "name": "ShopCart",
   "short_name": "ShopCart",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#14532d",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "edge_side_panel": {
+    "preferred_width": 500
+  },
   "icons": [
     {
       "src": "assets/icons/ios/72.png",

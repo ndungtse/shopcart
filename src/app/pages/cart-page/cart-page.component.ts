@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   addToCart,
+  getCartProducts,
   removeFromCart,
 } from 'src/app/store/products/product.actions';
 import { selectOnCart } from 'src/app/store/products/product.selector';
@@ -23,6 +24,7 @@ export class CartPageComponent {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(getCartProducts());
     this.isOnCart = this.cartProducts.some(
       (product) => product.id === this.product?.id
     );
@@ -31,6 +33,7 @@ export class CartPageComponent {
     this.isOnCart = this.cartProducts.some(
       (product) => product.id === this.product?.id
     );
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
 
   addToCart(product: Product) {
