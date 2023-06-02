@@ -13,13 +13,13 @@
       *ngFor="let product of cartProducts"
       class="flex w-full sm:flex-row flex-col gap-5 border-2 pr-2 bg-stone-100 rounded-lg justify-between items-center"
     >
-      <div class="flex gap-4 items-center">
+      <div class="flex gap-4 sm:flex-row flex-col items-center">
         <img
           class="aspect-square max-w-[200px] w-full"
           [src]="product?.image"
           alt=""
         />
-        <h1 class="text-lg max-w-[400px] font-semibold">{{ product.title }}</h1>
+        <a  [routerLink]="'/product/' + product?.id" class="text-lg max-w-[400px] font-semibold">{{ product.title }}</a>
       </div>
       <h1 class="text-2xl font-bold">{{ product.price }}</h1>
       <button
