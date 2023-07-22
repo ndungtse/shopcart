@@ -27,7 +27,7 @@ export class HomepageComponent {
     this.store.select(selectProducts).subscribe((products) => {
       console.log(products);
       this.products = products;
-      if (products.length === 0) this.store.dispatch(loadProducts());
+      if (products?.length === 0) this.store.dispatch(loadProducts());
     });
     this.store.select(selectLoading).subscribe((loading) => {
       this.loading = loading;
